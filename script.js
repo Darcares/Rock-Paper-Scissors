@@ -11,7 +11,14 @@ function playGame() {
         console.log(`Round ${index + 1}`);
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
+        if(humanChoice === null) {
+            index--;
+        }
+
+        else {
+
         playRound(humanChoice, computerChoice);
+        }
 
     }
 
