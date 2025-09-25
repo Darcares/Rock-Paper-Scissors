@@ -8,15 +8,14 @@ function playGame() {
     let computerScore = 0;
 
     for (let index = 0; index < 5; index++) {
-        console.log(`Round ${index + 1}`);
         const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
         if(humanChoice === null) {
             index--;
         }
 
         else {
-
+        console.log(`Round ${index + 1}`);
+        const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
         }
 
@@ -44,22 +43,22 @@ function playGame() {
 
     else if(humanChoice === `rock` && computerChoice === `scissors`) {
         console.log(`Human wins!`)
-        humanScore += 1;
+        humanScore ++;
     }
 
     else if(humanChoice === `paper` && computerChoice === `rock`) {
         console.log(`Human wins!`)
-        humanScore += 1;
+        humanScore ++;
     }
 
     else if(humanChoice === `scissors` && computerChoice === `paper`) {
         console.log(`Human wins!`)
-        humanScore += 1;
+        humanScore ++;
     }
 
     else {
         console.log(`Computer wins!`)
-        computerScore += 1;
+        computerScore ++;
     }
 
      console.log(`Human Score: ${humanScore} Computer Score: ${computerScore}`);
