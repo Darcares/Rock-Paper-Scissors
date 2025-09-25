@@ -1,6 +1,29 @@
-for (let index = 0; index < 100; index++) {
-    console.log(getComputerChoice());
-    
+
+
+function getHumanChoice() {
+
+    const input = prompt("Welcome. Please choose one of the following options. 1 for rock, 2 for paper, 3 for scissors");
+    let humanChoice = null;
+
+    switch(input) {
+        case "1":
+            humanChoice = "rock";
+            break;
+
+        case "2":
+            humanChoice = "paper";
+            break;
+
+        case "3":
+            humanChoice = "scissors";
+            break;
+
+        default:
+            console.log("Not valid human choice");
+            break;
+    }
+
+    return humanChoice;
 }
 
 
