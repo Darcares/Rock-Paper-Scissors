@@ -38,26 +38,22 @@ function playGame() {
     console.log(`Human: ${humanChoice} vs Computer: ${computerChoice}`);
 
     if(humanChoice === computerChoice) {
-        console.log(`It's a tie!`)
+        // Tie, no score change. Nothing happens here.
     }
 
     else if(humanChoice === `rock` && computerChoice === `scissors`) {
-        console.log(`Human wins!`)
         humanScore ++;
     }
 
     else if(humanChoice === `paper` && computerChoice === `rock`) {
-        console.log(`Human wins!`)
         humanScore ++;
     }
 
     else if(humanChoice === `scissors` && computerChoice === `paper`) {
-        console.log(`Human wins!`)
         humanScore ++;
     }
 
     else {
-        console.log(`Computer wins!`)
         computerScore ++;
     }
 
