@@ -43,6 +43,10 @@ function getComputerChoice() {
         case 3:
             computerChoice = "scissors";
             break;
+
+        default:
+            console.log("Not valid computer choice");
+            break;
     }
 
     return computerChoice;
