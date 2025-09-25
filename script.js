@@ -1,3 +1,5 @@
+"use strict";
+
 let humanScore = 0;
 let computerScore = 0;
 const humanChoice = getHumanChoice();
