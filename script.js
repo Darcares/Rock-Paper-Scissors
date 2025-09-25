@@ -12,7 +12,19 @@ function playGame() {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
-           
+
+    }
+
+    if(humanScore > computerScore) {
+        console.log("Human wins the game!")
+    }
+
+    else if(humanScore < computerScore) {
+        console.log("Computer wins the game!");
+    }
+
+    else {
+        console.log("Draw game!")
     }
 
     function playRound(humanChoice, computerChoice) {
