@@ -1,6 +1,6 @@
 "use strict";
 
-playGame();
+// playGame();
 
 function playGame() {
 
