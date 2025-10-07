@@ -1,26 +1,16 @@
 "use strict";
 
-// playGame();
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => button.addEventListener("click", playGame));
 
-function playGame() {
-
+function playGame(event) {
     let humanScore = 0;
     let computerScore = 0;
-
-    for (let index = 0; index < 5; index++) {
-        const humanChoice = getHumanChoice();
-        if(humanChoice === null) {
-            index--;
-        }
-
-        else {
-        console.log(`Round ${index + 1}`);
-        const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-        }
-
-    }
-
+    const buttonChoice = event.target.id;
+    const humanChoice = getHumanChoice(buttonChoice);
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    
     if(humanScore > computerScore) {
         console.log("Human wins the game!")
     }
@@ -64,12 +54,11 @@ function playGame() {
 }
 
 
-function getHumanChoice() {
+function getHumanChoice(buttonChoice) {
 
-    const input = prompt("Welcome. Please choose one of the following options. 1 for rock, 2 for paper, 3 for scissors");
     let humanChoice = null;
 
-    switch(input) {
+    switch(buttonChoice) {
         case "1":
             humanChoice = "rock";
             break;
