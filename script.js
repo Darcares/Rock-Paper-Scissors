@@ -1,56 +1,70 @@
 "use strict";
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach(button => button.addEventListener("click", playGame));
+playGame();
 
-function playGame(event) {
+function playGame() {
+    const buttons = document.querySelectorAll("button");
+    const score = document.querySelector(".score");
+    const winner = document.querySelector(".winner");
+    const versus = document.querySelector(".versus");
     let humanScore = 0;
     let computerScore = 0;
-    const buttonChoice = event.target.id;
-    const humanChoice = getHumanChoice(buttonChoice);
-    const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
     
-    if(humanScore > computerScore) {
-        console.log("Human wins the game!")
-    }
 
-    else if(humanScore < computerScore) {
-        console.log("Computer wins the game!");
-    }
+     buttons.forEach(button => button.addEventListener("click", event => {
+        winner.textContent = ``;
+        const buttonChoice = event.target.id;
+        const humanChoice = getHumanChoice(buttonChoice);
+        const computerChoice = getComputerChoice();
+        playRound();
+        score.textContent = `Human: ${humanScore} Computer: ${computerScore}`;
+        if(humanScore >= 5 || computerScore >= 5) declareWinner();
 
-    else {
-        console.log("Draw game!")
-    }
 
-    function playRound(humanChoice, computerChoice) {
 
-    console.log(`Human: ${humanChoice} vs Computer: ${computerChoice}`);
+        function initializeGame() {
+            humanScore = 0;
+            computerScore = 0;
+            }
 
-    if(humanChoice === computerChoice) {
-        // Tie, no score change. Nothing happens here.
-    }
+        function declareWinner() {
+            
+            if(humanScore > computerScore) {
+                winner.textContent = "Human wins the game!";
+            }
 
-    else if(humanChoice === `rock` && computerChoice === `scissors`) {
-        humanScore ++;
-    }
+            else {
+                winner.textContent = "Computer wins the game!";
+            }
 
-    else if(humanChoice === `paper` && computerChoice === `rock`) {
-        humanScore ++;
-    }
+            initializeGame();
+        } 
 
-    else if(humanChoice === `scissors` && computerChoice === `paper`) {
-        humanScore ++;
-    }
+        function playRound() {
 
-    else {
-        computerScore ++;
-    }
+            versus.textContent = `Human's ${humanChoice} VS Computer's ${computerChoice}`;
 
-     console.log(`Human Score: ${humanScore} Computer Score: ${computerScore}`);
-    
-}
+            if(humanChoice === computerChoice) {
+                // Tie, no score change. Nothing happens here.
+            }
 
+            else if(humanChoice === `rock` && computerChoice === `scissors`) {
+                humanScore ++;
+            }
+
+            else if(humanChoice === `paper` && computerChoice === `rock`) {
+                humanScore ++;
+            }
+
+            else if(humanChoice === `scissors` && computerChoice === `paper`) {
+                humanScore ++;
+            }
+
+            else {
+                computerScore ++;
+            }
+        }
+    }));
 }
 
 
